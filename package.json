@@ -2,7 +2,7 @@
   "name": "preframe",
   "version": "1.0.0",
   "description": "re-frame inspired framework for js and preact",
-  "main": "dist/index.js",
+  "main": "dist/pre-frame.js",
   "author": "\"The preframe authors\"",
   "license": "MIT",
   "private": false,
