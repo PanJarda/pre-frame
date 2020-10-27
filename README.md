@@ -41,18 +41,27 @@ import {
 // autoWire is not pure, since it automatically registers subscriptions and eventhandlers
 // but it is there just for convenience
 regEvent('init-store',
-  params => oldState => autoWire({
+  params => state => autoWire({
     counter: 0
   }));
+// without autoWire it would be equivalent to write:
+regEvent('init-store',
+  params => state => ({ counter: 0 }))
+
+regEvent('counter',
+  params => state => ({...state, counter: params }));
+
+regSub('counter') // which is sugar for regSub('counter', state => state.counter)
+*/
 
 // all events are pure functions
 regEvent('inc',
-  params => oldState =>
-    ({ ...oldState, counter: oldState.counter + 1 }));
+  params => state =>
+    ({ ...state, counter: state.counter + 1 }));
 
 regEvent('dec',
-  params => oldState =>
-    ({ ...oldState, counter: oldState.counter - 1 }));
+  params => state =>
+    ({ ...state, counter: state.counter - 1 }));
 
 // $dispatch is sugar for () => dispatch(..) but
 // callback is cached so there is no recreation of callback
