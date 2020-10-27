@@ -1,6 +1,6 @@
 # Pre-Frame
 reactive framework inspired by [re-frame](https://github.com/day8/re-frame).
-2 kB minified
+1.5 kB (gzipped)
 
 ## Simple counter
 ```js
