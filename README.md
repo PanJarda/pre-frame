@@ -131,7 +131,7 @@ regFx('ajax', params => {
 });
 
 // register effectfull event
-regEventFx('get-articles',
+regEventFx('get-articles',  // use: dispatch('get-articles')
   coeff => ({
     db: {...coeff.db, loading: true },
     ajax: {
