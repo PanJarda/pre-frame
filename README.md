@@ -2,7 +2,28 @@
 reactive framework inspired by [re-frame](https://github.com/day8/re-frame).
 1.5 kB (gzipped)
 
-## Simple counter
+There is one way data flow, similar to [redux](https://redux.js.org/). But without tons of boilerplate code,
+adapters, mappings to props and dispatch, context providers etc.
+And on top of this, you have more predictable state changes, due to ability to describe
+effectfull event handlers by pure functions and chain that event handlers.
+You only care of pure state transformations and dealing with
+external state of world is handled by pre-frame for you via concept of coeffects.
+
+**Easier testing, less code, less bugs. 1.5 kB**
+
+### It works like this
+1. describe your data store aka db in re-frame terminology
+2. describe events, there are two types
+  a) regEvent - pure transformations of state
+  b) regEventFx - can calculate new state based on some other state from outer world
+      for example actual date, results of some ajax queries, etc. and can trigger other
+       event handlers
+3. describe signal graph, which means describe what happens when app state changes
+4. describe view - simply preact components, and bind it with app state through
+  subscriptions.
+
+## Examples
+### Simple counter
 ```js
 import { h, render } from 'preact';
 
@@ -45,7 +66,7 @@ dispatchSync('init-store');
 
 render(<App/>, document.getElementById('app'))
 ```
-## Advanced example
+### Advanced example
 ```js
 import { h, render } from 'preact';
 
@@ -84,7 +105,7 @@ dispatchSync('init-store');
 
 render(<App/>, document.getElementById('app'))
 ```
-## Coeffects and interceptors
+### Coeffects and interceptors
 ```js
 
 // register interceptor
@@ -96,7 +117,7 @@ regEventFx('now',
   coeff => ({ db: { ...coeff.db, now: coeff.now });
 ```
 
-## Ajax using effects
+### Ajax using effects
 ```js
 // effect handler
 regFx('ajax', params => {
