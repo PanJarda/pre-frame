@@ -43,6 +43,7 @@ import {
   regEvent,
   dispatchSync,
   $dispatch,
+  bind,
   autoWire,
 } from 'pre-frame';
 
@@ -75,15 +76,14 @@ regEvent('dec',
 // $dispatch is same as () => dispatch(..), but
 // callback is cached so there is no recreation of callback
 // on each render (similar to useCallback hook)
-const App = () =>
-  <>
+const App = () => (<div>
     <h1>{ $('counter') }</h1>
     <button onClick={ $dispatch('inc') }> + </button>
     <button onClick={ $dispatch('dec') }> - </button>
     <br/>
     <label>Set counter:</label>
-    <input { ...bind('counter'), type: 'number' } />
-  </>
+    <input { ...bind('counter') } />
+  </div>);
 
 // dispatch is asynchronous but we need to initialize store
 // before render, so we use synchronous version
