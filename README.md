@@ -67,7 +67,7 @@ regSub('counter') // which is sugar for regSub('counter', state => state.counter
 // all events are pure functions
 regEvent('inc',
   params => state =>
-    ({ ...state, counter: state.counter + 1 }));
+    ({ ...state, counter: parseInt(state.counter) + 1 }));
 
 regEvent('dec',
   params => state =>
@@ -82,7 +82,7 @@ const App = () => (<div>
     <button onClick={ $dispatch('dec') }> - </button>
     <br/>
     <label>Set counter:</label>
-    <input { ...bind('counter') } />
+    <input { ...bind('counter') } type="number" />
   </div>);
 
 // dispatch is asynchronous but we need to initialize store
