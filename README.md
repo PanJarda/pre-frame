@@ -1,8 +1,8 @@
 # 🔄 Pre-Frame
-reactive framework inspired by [re-frame](https://github.com/day8/re-frame).
+Truly reactive framework inspired by [re-frame](https://github.com/day8/re-frame).
 1.5 kB (gzipped)
 
-There is one way data flow, similar to [redux](https://redux.js.org/). But without tons of boilerplate code,
+There is one way data flow, similar to [redux](https://redux.js.org/). But without tons of boilerplate reducers,
 adapters, mappings to props and dispatch, context providers etc.
 And on top of this, you have more predictable state changes, due to ability to describe
 effectfull event handlers by pure functions and chain that event handlers.
