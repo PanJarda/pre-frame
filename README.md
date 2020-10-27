@@ -99,7 +99,7 @@ const App = () =>
     <h1 style={{color: $('color')}}>Mr. { $('fullName') }</h1>
     <h2>Favourite color is: { $('color') }</h2>
     <input { ...bind('color') } />
-    <input { ...bind('firstName') } />
+    <input { ...bind('firstName') } /> // equals <input onInput={ $dispatch('firstName') } value={ $('firstName') }/>
     <input { ...bind('lastName') } />
   </div>;
 
