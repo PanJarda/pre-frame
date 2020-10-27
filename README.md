@@ -38,6 +38,8 @@ import {
 } from 'pre-frame';
 
 // autoWire creates subscriptions for all keyes in app state
+// autoWire is not pure, since it automatically registers subscriptions and eventhandlers
+// but it is there just for convenience
 regEvent('init-store',
   params => oldState => autoWire({
     counter: 0
