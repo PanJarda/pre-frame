@@ -63,9 +63,9 @@ regEvent('dec',
   params => state =>
     ({ ...state, counter: state.counter - 1 }));
 
-// $dispatch is sugar for () => dispatch(..) but
+// $dispatch is same as () => dispatch(..), but
 // callback is cached so there is no recreation of callback
-// on each render
+// on each render (similar to useCallback hook)
 const App = () =>
   <>
     <h1>{ $('counter') }</h1>
