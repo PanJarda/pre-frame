@@ -1,6 +1,6 @@
 # Pre-Frame
 reactive framework inspired by [re-frame](https://github.com/day8/re-frame).
-2 kB minified
+1.5 kB (gzipped)
 
 ## Simple counter
 ```js
@@ -12,7 +12,7 @@ import {
   dispatchSync,
   $dispatch,
   autoWire,
-} from 'preframe';
+} from 'pre-frame';
 
 // autoWire creates subscriptions for all keyes in app state
 regEvent('init-store',
@@ -55,7 +55,7 @@ import {
   dispatchSync,
   autoWire,
   bind
-} from 'preframe';
+} from 'pre-frame';
 
 regEvent('init-store',
   params => state => autoWire({
