@@ -77,7 +77,7 @@ const App = () =>
   </>
 
 // dispatch is asynchronous but we need to initialize store
-// before render
+// before render, so we use synchronous version
 dispatchSync('init-store');
 
 render(<App/>, document.getElementById('app'))
