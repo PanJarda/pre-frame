@@ -84,3 +84,47 @@ dispatchSync('init-store');
 
 render(<App/>, document.getElementById('app'))
 ```
+## Coeffects and interceptors
+```js
+
+// register interceptor
+regCofx('now',
+  coeff => ({ ...coeff, now: (new Date()).toLocaleTimeString()}));
+
+regEventFx('now',
+  [ injectCofx('now') ], // interceptor injects current time to coeffect
+  coeff => ({ db: { ...coeff.db, now: coeff.now });
+```
+
+## Ajax using effects
+```js
+// effect handler
+regFx('ajax', params => {
+  const p = { method: 'method' in params ? params.method : 'GET' };
+  fetch(params.uri, p)
+  .then(response => params.format === 'json' ? response.json() : response.text())
+  .then(data => dispatch(params.onSuccess, data))
+  .catch(err => dispatch(...params.onFailure))
+});
+
+// register effectfull event
+regEventFx('get-articles',
+  coeff => ({
+    db: {...coeff.db, loading: true },
+    ajax: {
+      uri: '/api/articles'
+      format: 'json',
+      method: 'GET',
+      onSuccess: 'get-articles-success',
+      onFailure: ['api-request-error', 'get-articles']
+    }
+  }))
+
+regEvent('get-articles-success',
+  articles => db =>
+    ({ ...db, articles, loading: false }))
+
+regEvent('api-request-error',
+  err => db =>
+    ({ ...db, loading: false, error: 'failed to retrieve ' + err }))
+```
