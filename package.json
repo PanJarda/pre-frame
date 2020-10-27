@@ -1,5 +1,5 @@
 {
-  "name": "preframe",
+  "name": "pre-frame",
   "version": "1.0.0",
   "description": "re-frame inspired framework for js and preact",
   "main": "dist/pre-frame.js",
