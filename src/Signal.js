@@ -49,10 +49,8 @@ Signal.prototype._processQueue = function(withoutUpdate) {
     this.subscribers.forEach(sub => {
       if ('update' in sub) {
         sub.update(this.name, result);
-      } else { // it is component;
-        //sub.base.style.backgroundColor = "rgba(255,0,0,0.1)";
-        //setTimeout(() => sub.base.style.backgroundColor = "unset", 100)
-        sub.setState({});//({prdel: Math.floor(Math.random() * Math.floor(12346))}) // preact allready debouncing this
+      } else {
+        sub.setState({});
       }
     });
   }
