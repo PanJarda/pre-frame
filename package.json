@@ -2,11 +2,18 @@
   "name": "preframe",
   "version": "1.0.0",
   "description": "re-frame inspired framework for js and preact",
-  "main": "index.js",
+  "main": "dist/index.js",
   "author": "\"The preframe authors\"",
   "license": "MIT",
   "private": false,
   "peerDependencies": {
     "preact": "^10.0.0"
+  },
+  "devDependencies": {
+    "rollup": "^2.32.1",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "scripts": {
+    "build": "rollup -c"
   }
 }
