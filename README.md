@@ -23,7 +23,16 @@ external state of world is handled by pre-frame for you via concept of coeffects
   subscriptions.
   
 For more detailed description read [re-frame documentation](http://day8.github.io/re-frame/re-frame/).
-
+## Install
+```sh
+yarn add https://github.com/PanJarda/pre-frame
+```
+or
+```html
+<script src="preact.min.js"></script>
+<!-- make sure that pre-frame.min.js is loaded after preact.min.js -->
+<script src="pre-frame.min.js"></script>
+```
 ## Examples
 ### Simple counter
 ```js
@@ -82,7 +91,7 @@ dispatchSync('init-store');
 
 render(<App/>, document.getElementById('app'))
 ```
-### Advanced example
+### Signal graph
 ```js
 import { h, render } from 'preact';
 
