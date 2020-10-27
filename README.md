@@ -1,4 +1,4 @@
-# 🔄 Pre-Frame
+# ♾️ Pre-Frame
 reactive framework inspired by [re-frame](https://github.com/day8/re-frame).
 1.5 kB (gzipped)
 
