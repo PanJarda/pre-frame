@@ -25,7 +25,7 @@ external state of world is handled by pre-frame for you via concept of coeffects
 For more detailed description read [re-frame documentation](http://day8.github.io/re-frame/re-frame/).
 ## Install
 ```sh
-yarn add https://github.com/PanJarda/pre-frame
+yarn add PanJarda/pre-frame
 ```
 or
 ```html
