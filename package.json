@@ -1,0 +1,12 @@
+{
+  "name": "preframe",
+  "version": "1.0.0",
+  "description": "re-frame inspired framework for js and preact",
+  "main": "index.js",
+  "author": "\"The preframe authors\"",
+  "license": "MIT",
+  "private": false,
+  "peerDependencies": {
+    "preact": "^10.0.0"
+  }
+}
