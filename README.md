@@ -60,6 +60,9 @@ const App = () =>
     <h1>{ $('counter') }</h1>
     <button onClick={ $dispatch('inc') }> + </button>
     <button onClick={ $dispatch('dec') }> - </button>
+    <br/>
+    <label>Set counter:</label>
+    <input { ...bind('counter'), type: 'number' } />
   </>
 
 // dispatch is asynchronous but we need to initialize store
