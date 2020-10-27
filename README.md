@@ -97,7 +97,9 @@ import { h, render } from 'preact';
 
 import {
   subscribe as $,
+  regSub,
   regEvent,
+  $dispatch,
   dispatchSync,
   autoWire,
   bind
@@ -106,8 +108,8 @@ import {
 regEvent('init-store',
   params => state => autoWire({
     color: 'green',
-    firstName: 'Jarda',
-    lastName: 'Carda'
+    firstName: 'John',
+    lastName: 'Doe'
   }));
 
 // declare signal graph
@@ -122,9 +124,10 @@ const App = () =>
     <h1 style={{color: $('color')}}>Mr. { $('fullName') }</h1>
     <h2>Favourite color is: { $('color') }</h2>
     <input { ...bind('color') } />
-    <input { ...bind('firstName') } /> // equals <input onInput={ $dispatch('firstName') } value={ $('firstName') }/>
+    <input { ...bind('firstName') } />
     <input { ...bind('lastName') } />
   </div>;
+// <input { ...bind('firstName') } is the same as <input onInput={ $dispatch('firstName') } value={ $('firstName') }/>
 
 dispatchSync('init-store');
 
