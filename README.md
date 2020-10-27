@@ -44,7 +44,7 @@ regEvent('init-store',
   params => state => autoWire({
     counter: 0
   }));
-// without autoWire it would be equivalent to write:
+/* without autoWire it would be equivalent to write:
 regEvent('init-store',
   params => state => ({ counter: 0 }))
 
