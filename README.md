@@ -22,7 +22,7 @@ external state of world is handled by pre-frame for you via concept of coeffects
 4. describe view - simply preact components, and bind it with app state through
   subscriptions.
   
-For more detailed information read (re-frame documentation)[http://day8.github.io/re-frame/re-frame/].
+For more detailed information read [re-frame documentation](http://day8.github.io/re-frame/re-frame/).
 
 ## Examples
 ### Simple counter
